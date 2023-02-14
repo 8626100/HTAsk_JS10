@@ -9,14 +9,22 @@
     <script src="data.js"></script>
     <style>
         .content {
-            width: 300px;
 
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            width: 300px;
+            border: 4px dashed rgb(195, 81, 81);
+            padding: 10px;
+            background-color: blanchedalmond;
         }
 
         img {
             width: 200px;
-            border: 1px dashed grey;
-            padding: 10px;
+
         }
     </style>
 </head>
@@ -29,19 +37,22 @@
 
         dataInfo.photos.forEach(photos => {
 
-
+            const cardEl = document.createElement('div');
+            cardEl.classList.add('card');
 
             const nameEl = document.createElement('h1');
             nameEl.textContent = photos.camera.full_name;
-            contentEl.appendChild(nameEl);
+            cardEl.appendChild(nameEl);
 
             const landingDate = document.createElement('p');
             landingDate.textContent = photos.rover.landing_date;
-            contentEl.appendChild(landingDate);
+            cardEl.appendChild(landingDate);
 
             const photosImgEl = document.createElement('img');
             photosImgEl.src = photos.img_src;
-            contentEl.appendChild(photosImgEl);
+            cardEl.appendChild(photosImgEl);
+
+            contentEl.appendChild(cardEl);
 
         });
 
