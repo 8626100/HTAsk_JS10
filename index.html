@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="data.js"></script>
+    <style>
+        .content {
+            width: 300px;
+
+        }
+
+        img {
+            width: 200px;
+            border: 1px dashed grey;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content"></div>
+    <script>
+
+        const contentEl = document.querySelector('.content');
+
+        dataInfo.photos.forEach(photos => {
+
+
+
+            const nameEl = document.createElement('h1');
+            nameEl.textContent = photos.camera.full_name;
+            contentEl.appendChild(nameEl);
+
+            const landingDate = document.createElement('p');
+            landingDate.textContent = photos.rover.landing_date;
+            contentEl.appendChild(landingDate);
+
+            const photosImgEl = document.createElement('img');
+            photosImgEl.src = photos.img_src;
+            contentEl.appendChild(photosImgEl);
+
+        });
+
+    </script>
+</body>
+
+</html>
